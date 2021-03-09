@@ -28,7 +28,11 @@ EXTRA_DIST = windows/asn1-parser/asn1-parser.vcproj			\
 	CONTRIBUTING.md cfg.mk maint.mk AUTHORS NEWS ChangeLog		\
 	THANKS LICENSE
 
-SUBDIRS = lib src fuzz tests
+SUBDIRS = lib src
+
+if ENABLE_TESTS
+SUBDIRS += fuzz tests
+endif
 
 if ENABLE_DOC
 SUBDIRS += doc examples
