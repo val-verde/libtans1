@@ -51,6 +51,11 @@ AC_ARG_ENABLE(doc,
     enable_doc=$enableval, enable_doc=yes)
 AM_CONDITIONAL(ENABLE_DOC, test "$enable_doc" != "no")
 
+AC_ARG_ENABLE(tests,
+  AS_HELP_STRING([--disable-tests], [don't build fuzzers/tests]),
+    enable_tests=$enableval, enable_tests=no)
+AM_CONDITIONAL(ENABLE_TESTS, test "$enable_tests" != "no")
+
 AC_CHECK_FUNCS([clock_gettime fmemopen])
 
 AM_MISSING_PROG(HELP2MAN, help2man, $missing_dir)
